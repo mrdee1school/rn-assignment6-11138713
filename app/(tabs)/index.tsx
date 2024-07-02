@@ -1,8 +1,13 @@
-import ItemCard from '@/components/ItemCard';
-import { Image, View, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import ItemCard from "@/components/ItemCard";
+import { router } from "expo-router";
+import { Image, View, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
+  const checkout = () => {
+    router.push("/checkout");
+  };
+
   return (
     <SafeAreaView>
       <View className="flex-row justify-between px-5">
@@ -16,9 +21,9 @@ export default function HomeScreen() {
           <View className="pr-2">
             <Image source={require("@/assets/images/Search.png")} />
           </View>
-          <View className="pl-2">
+          <TouchableOpacity onPress={checkout} className="pl-2">
             <Image source={require("@/assets/images/shoppingBag.png")} />
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
 
