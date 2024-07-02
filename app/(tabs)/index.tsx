@@ -1,34 +1,42 @@
-import { Image, StyleSheet, Platform, Text } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import ItemCard from '@/components/ItemCard';
+import { Image, View, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   return (
     <SafeAreaView>
-     <Text className='text-red-200'>Hello</Text>
+      <View className="flex-row justify-between px-5">
+        <View>
+          <Image source={require("@/assets/images/Menu.png")} />
+        </View>
+        <View>
+          <Image source={require("@/assets/images/Logo.png")} />
+        </View>
+        <View className="flex-row items-center">
+          <View className="pr-2">
+            <Image source={require("@/assets/images/Search.png")} />
+          </View>
+          <View className="pl-2">
+            <Image source={require("@/assets/images/shoppingBag.png")} />
+          </View>
+        </View>
+      </View>
+
+      <View className="flex-row justify-between px-5 pt-8 pb-4">
+        <View>
+          <Text className="text-4xl">Our Story</Text>
+        </View>
+        <View className="flex-row">
+          <View className="bg-gray-300 rounded-full p-4 mr-2">
+            <Image source={require("@/assets/images/Listview.png")} />
+          </View>
+          <View className="bg-gray-300 rounded-full p-4 ml-2">
+            <Image source={require("@/assets/images/Filter.png")} />
+          </View>
+        </View>
+      </View>
+
+      <ItemCard />
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
