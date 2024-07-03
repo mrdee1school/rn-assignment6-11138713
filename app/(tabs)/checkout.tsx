@@ -1,9 +1,19 @@
 import CheckoutItemCard from "@/components/CheckoutItemCard";
-import { Image, SafeAreaView, View, ScrollView } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  View,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 
 import { Text } from "react-native";
+import { router } from "expo-router";
 
 export default function TabTwoScreen() {
+  const checkout = () => {
+    router.push("/home");
+  };
   return (
     <SafeAreaView className="bg-[#FAFAFD] h-full">
       <View className="flex-row justify-between px-5">
@@ -35,7 +45,9 @@ export default function TabTwoScreen() {
           tintColor="white"
           source={require("@/assets/images/shoppingBag.png")}
         />
-        <Text className="text-white text-lg">Checkout</Text>
+        <TouchableOpacity onPress={checkout}>
+          <Text className="text-white text-lg">Checkout</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
